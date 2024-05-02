@@ -1,4 +1,4 @@
-class ball{
+class Ball{
 
   int radius;
   float x;
@@ -6,7 +6,7 @@ class ball{
   float vy = 0;
   float ay = 0.5;
  
-  ball(int x, int y, int radius){
+  Ball(int x, int y, int radius){
     this.x = (float)x;
     this.y = (float)y;
     this.radius = radius;
