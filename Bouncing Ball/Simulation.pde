@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-LinkedList<ball> balls = new LinkedList<ball>();
+LinkedList<Ball> balls = new LinkedList<Ball>();
 int ground = 150;
 int radius = 40;
 boolean click;
@@ -43,7 +43,7 @@ void draw(){
   
   //spawns ball
   if(click && mouseButton == LEFT){
-    balls.add(new ball(mouseX, mouseY, radius));
+    balls.add(new Ball(mouseX, mouseY, radius));
     click = false;
   }
   
