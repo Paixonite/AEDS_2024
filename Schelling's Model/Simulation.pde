@@ -1,29 +1,35 @@
 int [][]grid;
 int n = 100;
-
-
-
+boolean click;
 
 void setup(){
-  size (1000,1000);
-  frameRate(100);
+  size (600,600);
+  frameRate(60);
   background(255);
+  noStroke();
+  click = false;
   grid = initGrid();
 }
 
-
-
+void draw(){
+  printGrid();
+  updateGrid();
+ 
+  if(click){
+    grid  = initGrid();
+    click = false;
+  }
+}
 
 int [][]initGrid(){
   int[][]m = new int[n][n];
  
   for(int i = 0; i < n; i++)
     for(int j = 0; j < n; j++)
-      m[i][j] = (int)(random(3));
-       
+      m[i][j] = (int)random(3);
+      
   return m;
 }
-
 
 void printGrid(){
   float l = width/(float)n;
@@ -32,14 +38,13 @@ void printGrid(){
 
   for(int i = 0; i < n; i++){
     for(int j = 0; j < n; j++){
-      stroke(200);
       switch (grid[i][j]){
         case 0:
           fill(255);
           break;
          
         case 1:
-          fill(0, 255, 0);
+          fill(255, 0, 0);
           break;
          
         case 2:
@@ -50,7 +55,6 @@ void printGrid(){
     }
   }
 }
-
 
 int countNeighbors(int i, int j){
   int sum = 0;
@@ -64,7 +68,6 @@ int countNeighbors(int i, int j){
   return sum;
 }
 
-
 void updateGrid() {
   int[][] newGrid = new int[n][n];
 
@@ -77,7 +80,7 @@ void updateGrid() {
       int neighbors = countNeighbors(i, j);
 
 
-      if (neighbors < 3) {
+      if (neighbors < 4) {
         boolean moved = false;
         for (int attempt = 0; attempt < 10; attempt++) {
           int kj = (int) random(n);
@@ -102,13 +105,6 @@ void updateGrid() {
   grid = newGrid;
 }
 
-
-
-
-void draw(){
-  printGrid();
-  updateGrid();
- 
-  if(mousePressed)
-    grid  = initGrid();
+void mousePressed(){
+  click = true;
 }
