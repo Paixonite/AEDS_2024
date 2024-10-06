@@ -1,16 +1,21 @@
 // Parâmetros da Simulação
-int tamanhoDaPopulacao = 100;    // Tamanho da população
-int geracao = 0;                // Contador de gerações
-ArrayList<Organismo> populacao; // Lista de organismos
-ArrayList<PVector> comida;      // Lista de recursos
+int tamanhoDaPopulacao = 100;   // Tamanho da população
 int quantidadeRecursos = 25;    // Número de recursos no ambiente
 int tempoDeVida = 100;          // Duração de cada geração em frames
-int contadorDeFrames = 0;       // Contador de frames
 int populacaoMax = 250;         // População máxima para evitar superpopulação
+
+int geracao;                // Contador de gerações
+int contadorDeFrames;       // Contador de frames
+
+ArrayList<Organismo> populacao; // Lista de organismos
+ArrayList<PVector> comida;      // Lista de recursos
 
 void setup() {
   size(800, 600);
-  //fullScreen();
+
+  geracao = 0;
+  contadorDeFrames = 0;
+
   populacao = new ArrayList<Organismo>();
   comida = new ArrayList<PVector>();
   
